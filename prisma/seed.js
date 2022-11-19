@@ -6,23 +6,33 @@ const {seedHelper} = require("../helpers");
 const prisma = new PrismaClient();
 
 async function main() {
-        for (let i = 0; i < baseConstant.QUANTITY; i++) {
-            const randomName = seedHelper.generateUserName();
+    for (let i = 0; i < baseConstant.QUANTITY; i++) {
+        const randomName = seedHelper.generateUserName();
 
-            const newUser = await prisma.user.upsert({
-                where: {id: i+1},
-                update: {},
-                create: {
-                    first_name: `${randomName}`,
-                    gender: seedHelper.generateUserGender(),
-                    friends: {
-                        create: []
-                    },
+        const newUser = await prisma.user.upsert({
+            where: {id: i + 1},
+            update: {},
+            create: {
+                first_name: `${randomName}`,
+                gender: seedHelper.generateUserGender(),
+                friends: {
+                    create: []
                 },
-            })
+            },
+        })
+    }
+    const users = await prisma.user.findMany();
 
-            console.log({newUser})
-        }
+    users.map(user => {
+        prisma.user.update({
+            where: {id: user.id},
+            data: {friends: { connect: seedHelper.generateSubscription(user.id, users)}},
+            /*data: {friends: { connect: [
+                { id: 3 },
+                { id: 5 },
+                    ] } },*/
+        }).then(data => console.log(data));
+    });
 }
 
 main()

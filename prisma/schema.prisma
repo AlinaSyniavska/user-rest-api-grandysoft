@@ -11,12 +11,9 @@ generator client {
 }
 
 model User {
-  id         Int    @id @default(autoincrement())
-  first_name String
-  gender     String
-//  userId     Int?
-//  user       User?  @relation("SubscriptionUsers", fields: [userId], references: [id])
-//  friends    User[] @relation("SubscriptionUsers")
-  user       User?  @relation("SubscriptionUsers", fields: [id], references: [id])
-  friends    User[] @relation("SubscriptionUsers")
+  id              Int    @id @default(autoincrement())
+  first_name      String
+  gender          String
+  friends         User[] @relation("Subscription")
+  friendsRelation User[] @relation("Subscription")
 }

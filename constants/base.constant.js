@@ -1,4 +1,4 @@
 module.exports = {
-    // QUANTITY: 200,
-    QUANTITY: 10,
+    MAX_SUBSCRIPTION: 150,
+    QUANTITY: 200,
 }

@@ -7,7 +7,9 @@ module.exports = {
         // order_by=id&order_type=desc      order_type=asc
         // const {order_by = 'id', order_type = 'desc', ...otherFilters} = query;
 
-        return prisma.user.findMany();
+        return prisma.user.findMany({
+            include: { friends: true }
+        });
 
     },
 

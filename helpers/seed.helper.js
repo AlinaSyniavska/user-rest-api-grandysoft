@@ -1,4 +1,4 @@
-const {usersNameEnum, genderEnum} = require("../constants");
+const {usersNameEnum, genderEnum, baseConstant} = require("../constants");
 
 module.exports = {
     generateUserName: () => {
@@ -9,6 +9,18 @@ module.exports = {
         const values = Object.values(genderEnum);
 
         return values[Math.floor(Math.random() * values.length)];
+    },
+
+    generateSubscription: (id, users) => {
+        const mySet = new Set();
+
+        const filterUsers = users.filter(user => user.id !== id);
+
+        for (let i = 0; i < Math.floor(Math.random() * baseConstant.MAX_SUBSCRIPTION + 1); i++) {
+            mySet.add({id: filterUsers[Math.floor(Math.random() * filterUsers.length)].id})
+        }
+
+        return [...mySet];
     },
 }
 
