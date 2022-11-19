@@ -27,10 +27,6 @@ async function main() {
         prisma.user.update({
             where: {id: user.id},
             data: {friends: { connect: seedHelper.generateSubscription(user.id, users)}},
-            /*data: {friends: { connect: [
-                { id: 3 },
-                { id: 5 },
-                    ] } },*/
         }).then(data => console.log(data));
     });
 }
