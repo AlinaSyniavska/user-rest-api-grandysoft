@@ -1,21 +1,16 @@
 require('dotenv').config();
 const {config} = require('./configs');
 
-import { PrismaClient } from '@prisma/client';
 const express = require('express');
 
-const prisma = new PrismaClient();
-
-// const {userRouter} = require("./routes");
-
 const app = express();
+
+const {userRouter} = require("./routes");
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-
-// app.use('/users', userRouter);
-
+app.use('/users', userRouter);
 
 app.use('*', (req, res) => {
     res.status(404).json('Route not found');
