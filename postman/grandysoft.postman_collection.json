@@ -1,0 +1,52 @@
+{
+	"info": {
+		"_postman_id": "1a1213cd-1049-40a1-b53f-1ab8a11c3b6b",
+		"name": "grandysoft",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20761832"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}users",
+							"host": [
+								"{{HOST}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "note by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}notes/:id",
+							"host": [
+								"{{HOST}}notes"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{noteId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
