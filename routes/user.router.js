@@ -1,8 +1,6 @@
 const userRouter = require('express').Router();
 
 const {userController} = require("../controllers");
-const {commonMiddleware} = require("../middlewares");
-const {queryValidator} = require("../validators");
 
 userRouter.get('/',
     userController.getAll);

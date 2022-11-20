@@ -1,4 +1,4 @@
 module.exports = {
-    commonValidator: require('./common/common.validator'),
-    queryValidator: require('./common/query.validator'),
+    commonValidator: require('./common.validator'),
+    queryValidator: require('./query.validator'),
 }

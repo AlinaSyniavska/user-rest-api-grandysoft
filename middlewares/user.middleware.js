@@ -1,5 +1,5 @@
-const {userService} = require("../../services");
-const {CustomError} = require("../../errors");
+const {userService} = require("../services");
+const {CustomError} = require("../errors");
 
 module.exports = {
     isUserPresent: async (req, res, next) => {

@@ -1,6 +1,6 @@
 module.exports = {
-    commonMiddleware: require('./common/common.middleware'),
-    userMiddleware: require('./user/user.middleware'),
+    commonMiddleware: require('./common.middleware'),
+    userMiddleware: require('./user.middleware'),
 }
 
 

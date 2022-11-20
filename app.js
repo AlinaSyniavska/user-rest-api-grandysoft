@@ -5,12 +5,14 @@ const express = require('express');
 
 const app = express();
 
-const {userRouter} = require("./routes");
+const {userRouter, maxFollowingRouter, notFollowingRouter} = require("./routes");
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use('/users', userRouter);
+app.use('/max-following', maxFollowingRouter);
+app.use('/not-following', notFollowingRouter);
 
 app.use('*', (req, res) => {
     res.status(404).json('Route not found');

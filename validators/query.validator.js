@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-const {orderTypeEnum} = require("../../constants");
+const {orderTypeEnum} = require("../constants");
 
 module.exports = {
     userValidator: Joi.object({

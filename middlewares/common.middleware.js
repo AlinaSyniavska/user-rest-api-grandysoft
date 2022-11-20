@@ -1,5 +1,5 @@
 
-const {CustomError} = require("../../errors");
+const {CustomError} = require("../errors");
 
 module.exports = {
 /*    isIdValid: (req, res, next) => {
