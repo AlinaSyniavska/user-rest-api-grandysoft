@@ -2,11 +2,11 @@
 const {CustomError} = require("../errors");
 
 module.exports = {
-/*    isIdValid: (req, res, next) => {
+    isIdValid: (req, res, next) => {
         try {
             const {id} = req.params;
 
-            if (!Types.ObjectId.isValid(id)) {
+            if (!Number(id)) {
                 return next(new CustomError('Not valid ID'));
             }
 
@@ -14,7 +14,7 @@ module.exports = {
         } catch (e) {
             next(e);
         }
-    },*/
+    },
 
     isDataValid: (validationSchema, dataType = 'body') => async (req, res, next) => {
         try {

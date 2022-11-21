@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "node app.js",
-    "dev": "pm2 start app.js --name mainServer --watch --attach"
+    "dev": "pm2 start app.js --name mainServer --watch --attach",
+    "kill": "pm2 kill"
   },
   "prisma": {
     "seed": "node prisma/seed.js"

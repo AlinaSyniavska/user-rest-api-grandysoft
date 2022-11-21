@@ -30,7 +30,6 @@ module.exports = {
 
             res.json({
                 data: responseUsers,
-                // data: users,
             });
         } catch (e) {
             next(e);

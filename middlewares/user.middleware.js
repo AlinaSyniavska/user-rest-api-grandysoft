@@ -6,7 +6,7 @@ module.exports = {
         try {
             const {id} = req.params;
 
-            const user = await userService.findOne({_id: id});
+            const user = await userService.findOne({id: id}, req.query);
 
             if(!user){
                 return next(new CustomError(`User with id ${id} not found`, 404));

@@ -24,23 +24,67 @@
 					"response": []
 				},
 				{
-					"name": "note by ID",
+					"name": "user's friends by ID",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{HOST}}notes/:id",
+							"raw": "{{HOST}}users/:id/friends?order_by=id&order_type=desc",
 							"host": [
-								"{{HOST}}notes"
+								"{{HOST}}users"
 							],
 							"path": [
-								":id"
+								":id",
+								"friends"
+							],
+							"query": [
+								{
+									"key": "order_by",
+									"value": "id"
+								},
+								{
+									"key": "order_type",
+									"value": "desc"
+								}
 							],
 							"variable": [
 								{
 									"key": "id",
-									"value": "{{noteId}}"
+									"value": "25"
 								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "following",
+			"item": [
+				{
+					"name": "maxFollowing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}max-following",
+							"host": [
+								"{{HOST}}max-following"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notFollowing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}not-following",
+							"host": [
+								"{{HOST}}not-following"
 							]
 						}
 					},

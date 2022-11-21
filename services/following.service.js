@@ -21,15 +21,6 @@ module.exports = {
 
     findNotFollowing: () => {
         return prisma.user.findMany({
-            /*include: {
-                friends: {
-                    select: {
-                        _count: true,
-
-                    },
-                },
-            },*/
-
             include: {
                 friends: true,
             },
