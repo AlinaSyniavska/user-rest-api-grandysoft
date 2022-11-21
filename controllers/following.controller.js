@@ -26,22 +26,15 @@ module.exports = {
         try {
             const users = await followingService.findNotFollowing();
 
-            const responseUsers = users.map(user => {
-                return {
-                    id: user.id,
-                    first_name: user.first_name,
-                    gender: user.gender,
-                    friends: user._count.friends,
-                }
-            });
+            const responseUsers = users.filter(user => user.friends.length === 0);
 
             res.json({
                 data: responseUsers,
+                // data: users,
             });
         } catch (e) {
             next(e);
         }
     },
-
 }
 

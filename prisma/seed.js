@@ -24,7 +24,7 @@ async function main() {
     const users = await prisma.user.findMany();
 
     users
-        .filter(user => user.id % 50 !== 0)
+        .filter(user => user.id % 50 !== 0) //seeding some users without following
         .map(user => {
             prisma.user.update({
                 where: {id: user.id},

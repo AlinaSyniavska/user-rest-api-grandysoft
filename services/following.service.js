@@ -7,7 +7,7 @@ module.exports = {
         return prisma.user.findMany({
             include: {
                 _count: {
-                    select: { friends: true },
+                    select: {friends: true},
                 },
             },
             orderBy: {
@@ -19,14 +19,21 @@ module.exports = {
         })
     },
 
+    findNotFollowing: () => {
+        return prisma.user.findMany({
+            /*include: {
+                friends: {
+                    select: {
+                        _count: true,
 
+                    },
+                },
+            },*/
 
-/*    const userCount = await prisma.user.count({
-        where: {
-            profileViews: {
-                gte: 100,
+            include: {
+                friends: true,
             },
-        },
-    })*/
+        })
+    },
 
 }
