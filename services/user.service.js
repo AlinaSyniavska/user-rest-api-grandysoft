@@ -46,7 +46,6 @@ module.exports = {
             })
 
             if (result.friends.length) {
-                console.log(result);
                 bothFollowing.push(result);
             }
         }

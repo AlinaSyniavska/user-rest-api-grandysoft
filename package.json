@@ -2,9 +2,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "pm2 start app.js --name mainServer --watch --attach",
-    "kill": "pm2 kill",
-    "prisma-init": "npx prisma init npx prisma migrate dev --name init",
-    "prisma-seed": "npx prisma db seed"
+    "kill": "pm2 kill"
   },
   "prisma": {
     "seed": "node prisma/seed.js"
