@@ -7,7 +7,6 @@ module.exports = {
         return prisma.user.findMany({
             include: { friends: true }
         });
-
     },
 
     findOne: (params = {}, query = {}) => {
